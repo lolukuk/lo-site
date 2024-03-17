@@ -1,2 +1,2 @@
 # Django pet project
-// релиз
+// develop в процессе
