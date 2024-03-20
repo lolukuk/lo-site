@@ -1,5 +1,7 @@
-from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.urls import reverse
+
 
 # Create your views here.
 def index(request): #HttpRequest
@@ -14,7 +16,8 @@ def art_by_slug(request, art_slug):
 
 def archive(request, year):
     if year > 2024:
-        raise Http404()
+        url = reverse('art_slug',  args=('kek',))
+        return HttpResponseRedirect(url)
     return HttpResponse(f"Тут будут картинки//archive<p>{year}</p>")
 
 def page_not_found(request, exception):
