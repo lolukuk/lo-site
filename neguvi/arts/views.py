@@ -2,7 +2,6 @@ from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpRespons
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-
 # Create your views here.
 def index(request): #HttpRequest
     return HttpResponse("Стартовая страница")
