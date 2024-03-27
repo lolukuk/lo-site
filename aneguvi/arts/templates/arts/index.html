@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+{% include 'arts/include/nav.html' %}
+
+<ul>
+    {% for art in arts %}
+    {% if art.is_print %}
+    <li>
+        <h2>{{art.title}}</h2>
+        <img src="{% static art.source %}" alt="{{art.title}}">
+        <p><a href="{% url 'art_view' art.id %}">Открыть арт</a></p>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link type="text/css" href="{% static 'arts/css/styles.css'%}" rel="stylesheet"/>
+    <link rel="icon" href="{% static 'arts/images/art1.jpg' %}" type="image/x-icon"/>
+</head>
+<body>
+<ul>
+    <li><a href="{% url 'home' %}">Главная страница</a></li>
+
+    <hr>
+    {% for m in menu %}
+    {% if not forloop.last %}<a>{% else %}<a class="last"{% endif %}
+    <a href="{% url m.url_name %}">{{ m.title }}</a></a>
+    {% endfor %}
+
+</ul>
+
+{% block content%} {% endblock %}
+
+</body>
+</html>
